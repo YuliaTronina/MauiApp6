@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.Views.ViewGame"
+             xmlns:viewmodel="clr-namespace:MauiApp6.ViewModels"
+             Title="ViewGame">
+    <ContentPage.BindingContext>
+        <viewmodel:TicTacToeViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label Text="Tic-Tac-Toe" FontSize="Title" HorizontalOptions="Center"/>
+
+        <Label Text="{Binding CurrentPlayerText}" FontSize="Subtitle" HorizontalOptions="Center" Margin="10"/>
+
+        <Grid HorizontalOptions="Center" Margin="20" RowDefinitions="100, 100, 100" ColumnDefinitions="100, 100, 100">
+            <!-- Ячейка 1 -->
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[0]}"
+                    Text="{Binding Fields[0].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 2 -->
+            <Button Grid.Row="0" Grid.Column="1" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[1]}"
+                    Text="{Binding Fields[1].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 3 -->
+            <Button Grid.Row="0" Grid.Column="2" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[2]}"
+                    Text="{Binding Fields[2].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 4 -->
+            <Button Grid.Row="1" Grid.Column="0" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[3]}"
+                    Text="{Binding Fields[3].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 5 -->
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[4]}"
+                    Text="{Binding Fields[4].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 6 -->
+            <Button Grid.Row="1" Grid.Column="2" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[5]}"
+                    Text="{Binding Fields[5].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 7 -->
+            <Button Grid.Row="2" Grid.Column="0" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[6]}"
+                    Text="{Binding Fields[6].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 8 -->
+            <Button Grid.Row="2" Grid.Column="1" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[7]}"
+                    Text="{Binding Fields[7].Value}" FontSize="Large" BackgroundColor="Grey"/>
+
+            <!-- Ячейка 9 -->
+            <Button Grid.Row="2" Grid.Column="2" Command="{Binding ButtonCommandCommand}" CommandParameter="{Binding Fields[8]}"
+                    Text="{Binding Fields[8].Value}" FontSize="Large" BackgroundColor="Grey"/>
+        </Grid>
+
+        <Button Text="Новая игра" Command="{Binding NewGameCommand}" HorizontalOptions="Center" Margin="20" IsEnabled="{Binding IsGameOver}"/>
+       
+    </StackLayout>
+</ContentPage>
